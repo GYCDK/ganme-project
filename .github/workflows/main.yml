@@ -1,8 +1,8 @@
-name: Auto Update README
+name: Auto SEO README
 
 on:
   schedule:
-    - cron: "0 2 * * *"
+    - cron: "0 */6 * * *"   # 每6小时更新一次（引流更猛🔥）
   workflow_dispatch:
 
 jobs:
@@ -12,14 +12,52 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Update README
+      - name: Generate README
         run: |
-          echo "更新时间: $(date)" >> README.md
+          echo "# 🎮 2026最新游戏加速器推荐（持续更新）" > README.md
+          echo "" >> README.md
+          echo "🔥 本项目每日自动更新，提供最稳定的游戏加速器推荐" >> README.md
+          echo "" >> README.md
 
-      - name: Commit changes
+          echo "## 🏆 加速器推荐榜（亲测）" >> README.md
+          echo "" >> README.md
+
+          echo "### 🥇 雷神加速器（强烈推荐）" >> README.md
+          echo "- ✅ 延迟低，稳定不卡顿" >> README.md
+          echo "- ✅ 支持Steam / LOL / PUBG / CS2" >> README.md
+          echo "- 🎁 兑换口令：**GYCD**" >> README.md
+          echo "- 💡 新用户免费时长" >> README.md
+          echo "" >> README.md
+
+          echo "### 🥈 UU加速器" >> README.md
+          echo "- 网易出品，兼容性强" >> README.md
+          echo "" >> README.md
+
+          echo "### 🥉 迅游加速器" >> README.md
+          echo "- 老牌稳定，适合老玩家" >> README.md
+          echo "" >> README.md
+
+          echo "### 📌 其他加速器" >> README.md
+          echo "- BIUBIU加速器" >> README.md
+          echo "- 奇妙加速器" >> README.md
+          echo "- 外星人加速器" >> README.md
+          echo "- KO加速器" >> README.md
+          echo "- 给梨加速器" >> README.md
+          echo "" >> README.md
+
+          echo "## 📊 为什么推荐雷神加速器？" >> README.md
+          echo "- 线路稳定，晚高峰不掉速" >> README.md
+          echo "- 支持多游戏节点切换" >> README.md
+          echo "- 性价比高" >> README.md
+          echo "" >> README.md
+
+          echo "## ⏰ 自动更新时间" >> README.md
+          echo "$(date)" >> README.md
+
+      - name: Commit
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add README.md
-          git commit -m "auto update" || echo "no change"
+          git commit -m "🔥 自动更新引流内容" || echo "no change"
           git push
